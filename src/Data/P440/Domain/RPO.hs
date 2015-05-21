@@ -49,7 +49,7 @@ data СчетИлиКЭСП = Счет' [Счет]
                  deriving (Eq, Show)
 
 data Счет = Счет {
-     номСч :: Text
+     номСч :: НомСч
     ,видСч :: Text
 } deriving (Eq, Show)
 
