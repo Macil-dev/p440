@@ -40,7 +40,7 @@ import Data.P440.XML.Instances.Render.SimpleTypes
 
 рукНО name (РукНО классЧин фиоРукНО) =
     complex name
-            ["КлассЧин" =: классЧин]
+            ["КласЧин" =: классЧин]
             [Sequence [фио "ФИО" фиоРукНО]]
 
 -- Представитель КО/УБР
