@@ -7,7 +7,7 @@ import Data.P440.XML.Instances.Parse.ComplexTypes
 import qualified Data.P440.Domain.SimpleTypes as S
 import qualified Data.P440.Domain.RPO as RPO
 
-import Control.Applicative hiding (many)
+import Control.Applicative hiding (some, many)
 
 instance FromXML' RPO.Файл where
     fromXML' =
@@ -53,8 +53,8 @@ instance FromXML' RPO.ПлЮЛИлиПлИП where
 
 instance FromXML' RPO.СчетИлиКЭСП where
     fromXML' = choice' "Счет | КЭСП required"
-                   [Just . RPO.Счет' <$> many fromXML
-                   ,Just . RPO.КЭСП' <$> many fromXML]
+                   [(RPO.Счет' <$>) <$> some fromXML
+                   ,(RPO.КЭСП' <$>) <$> some fromXML]
 
 instance FromXML RPO.Счет where
     fromXML =
