@@ -5,6 +5,7 @@ module Data.P440.XML.Parse where
 import Text.XML.Stream.Parse
 
 import Control.Monad.Catch
+import Control.Applicative
 
 import Data.Text (Text)
 import qualified Data.Text as T
@@ -33,6 +34,21 @@ many :: (MonadThrow m)
      => Consumer Event m (Maybe a)
      -> Consumer Event m [a]
 many = Text.XML.Stream.Parse.many
+
+some :: (MonadThrow m)
+     => Consumer Event m (Maybe a)
+     -> Consumer Event m (Maybe [a])
+some p = f <$> p
+           <*> Data.P440.XML.Parse.many p
+    where
+        f Nothing _   = Nothing
+        f (Just s) ss = Just (s:ss)
+--some p = do
+--    res <- p
+--    case res of
+--         Nothing -> return Nothing
+--         Just s  -> do ss <- Data.P440.XML.Parse.many p
+--                       return $ Just (s:ss)
 
 choice :: (MonadThrow m)
        => [Consumer Event m (Maybe a)]
