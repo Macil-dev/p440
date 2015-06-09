@@ -53,5 +53,4 @@ data ПОРНОКЭСПН = ПОРНОКЭСПН {
     ,срокУплТр :: Maybe Text
     ,номТреб   :: Maybe Text
     ,датаТреб  :: Maybe Date
-    ,типПлат   :: Text
 } deriving (Eq, Show)
