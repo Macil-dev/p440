@@ -27,7 +27,7 @@ instance FromXML' BOS.СПРБНООСТАТ where
              (BOS.СПРБНООСТАТ <$> (attribute "НомСправ")
                               <*> (attribute "ТипСправ")
                               <*> (attribute "НомЗР")
-                              <*> (S.ИдЗапр <$> attribute "ИдЗапр")
+                              <*> ((S.ИдЗапр <$>) <$> attributeMaybe "ИдЗапр")
                               <*> (S.Date <$> attribute "ДатаПодпЗР")
                               <*> (S.Date <$> attribute "ДатаПол")
                               <*> (S.Date <$> attribute "ДатаПодп"))
