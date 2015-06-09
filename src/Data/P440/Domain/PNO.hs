@@ -53,23 +53,11 @@ data ПОРНОСЧЕТН = ПОРНОСЧЕТН {
     ,срокУплТр :: Maybe Text
     ,номТреб   :: Maybe Text
     ,датаТреб  :: Maybe Date
-    ,типПлат   :: Text
     ,порВал    :: Maybe ПорВал
-    ,порДеп    :: Maybe ПорДеп
 } deriving (Eq, Show)
 
 data ПорВал = ПорВал {
      номПорВал  :: Text
     ,датаПорВал :: Date
     ,номВалСч   :: Text
-} deriving (Eq, Show)
-
-data ПорДеп = ПорДеп {
-     номПорДеп  :: Text
-    ,датаПорДеп :: Date
-    ,номДеп     :: Text
-    ,номДогДеп  :: Text
-    ,датаДогДеп :: Date
-    ,номСчНП    :: Text
-    ,видСчНП    :: Text
 } deriving (Eq, Show)
