@@ -23,9 +23,6 @@ class FromXML a where
 class FromXML' a where
     fromXML' :: Parser' a
 
-parseText' :: (MonadThrow m) => ParseSettings -> Conduit Text m Event
-parseText' = mapOutput snd . parseText
-
 --runParser :: (MonadThrow m) => Parser a -> Text -> m a
 runParser p t =
     yield t $$ parseText' def =$= p
