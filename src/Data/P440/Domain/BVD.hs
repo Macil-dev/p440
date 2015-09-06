@@ -37,8 +37,9 @@ data Операции = Операции {
 } deriving (Eq, Show)
 
 data РеквДок = РеквДок {
-     видДок :: Maybe Text
-    ,номДок :: Text
+     видДок  :: Maybe Text
+    ,номДок  :: Text
+    ,датаДок :: Date
 } deriving (Eq, Show)
 
 data РеквБанка = РеквБанка {
