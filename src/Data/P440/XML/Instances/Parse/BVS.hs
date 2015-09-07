@@ -36,7 +36,7 @@ instance FromXML' BVS.ВЫПБНОСНОВ where
                                         <*> fromXML
                                         <*> предБ' "ПредБанка")
 
-instance FromXML' BVS.ПлЮлИлиПлИПИлиПлФЛ where
+instance FromXML' BVS.ПлЮЛИлиПлИПИлиПлФЛ where
     fromXML' = choice' "ПлЮЛ | ПлИП | ПлФЛ required"
                    [(BVS.ПлЮЛ' <$>) <$> плЮЛ "ПлЮЛ"
                    ,(BVS.ПлИП' <$>) <$> плИП "ПлИП"
