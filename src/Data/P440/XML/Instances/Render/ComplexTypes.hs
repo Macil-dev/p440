@@ -46,7 +46,7 @@ import Data.P440.XML.Instances.Render.SimpleTypes
 -- Представитель КО/УБР
 
 предБ name (ПредБ должностьПредБ фиоПредБ) =
-    complex "ПредБ"
+    complex name
             ["Должность" =: должностьПредБ]
             [Sequence [фио "ФИО" фиоПредБ]]
 
